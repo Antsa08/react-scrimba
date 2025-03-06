@@ -1,25 +1,31 @@
-export default function Contact() {
+import styles from '../styles/contact.module.scss'
+
+const Contact = function({contacts, img, name, email}) {
 	return (
-		<article className="contact-card">
+        <div className={contacts}>
+            <article className={styles.contactCard}>
             <img
-                src="./images/mr-whiskerson.png"
+                src={ img }
                 alt="Photo of Mr. Whiskerson"
             />
-            <h3>Mr. Whiskerson</h3>
-            <div className="info-group">
+            <h3>{ name }</h3>
+            <div className={styles.infoGroup}>
                 <img
-                    src="./images/phone-icon.png"
+                    src="/public/images/phone-icon.png"
                     alt="phone icon"
                 />
-                <p>(212) 555-1234</p>
+                <p>{ phone }</p>
             </div>
-            <div className="info-group">
+            <div className={styles.infoGroup}>
                 <img
-                    src="./images/mail-icon.png"
+                    src="/public/images/mail-icon.png"
                     alt="mail icon"
                 />
-                <p>mr.whiskaz@catnap.meow</p>
+                <p>{ email }</p>
             </div>
         </article>
+        </div>
 	)
 }
+
+export { Contact }
