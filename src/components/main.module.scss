@@ -1,18 +1,24 @@
 main {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	max-width: 1280px;
+	margin: 0 auto;
 	padding: 68px 58px;
+
+	section {
+		display: block;
+	}
 }
 
 .input {
+	margin-bottom: 48px;
 	input[type="text"] {
+		width: 80%;
 		min-width: 400px;
 		height: 38px;
 		padding: 9px 13px;
 		margin-right: 12px;
 		font-size: 0.88rem;
 		font-weight: 400;
+		color: #1a1a1a;
 		border: 1px solid #d1d5db;
 		border-radius: 6px;
 		background: #fff;
@@ -20,5 +26,12 @@ main {
 	}
 	button {
 		font-size: .88rem;
+	}
+}
+
+.ingredients {
+	.title {
+		font-size: 1.88rem;
+		font-weight: 600;
 	}
 }
