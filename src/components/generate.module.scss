@@ -2,9 +2,18 @@
     padding: 28px 42px;
     margin-top: 48px;
     background: #F0EFEB;
+    position: relative;
 
     p {
+        margin-bottom: 8px;
         font-size: 1.26rem;
         font-weight: 600;
+    }
+
+    button {
+        position: absolute;
+        background: #D17557;
+        right: 42px;
+        bottom: 28px;
     }
 }
