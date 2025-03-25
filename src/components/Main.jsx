@@ -6,36 +6,39 @@ import styles from './main.module.scss'
 
 export const Main = () => {
 
-	const ingredients = ['Chicken', 'Oregano', 'Tomatoes'];
-	const ingredientList = ingredients.map((ingredient) => {
-		return (<li>{ingredient}</li>);
+	const [ingredients, setIngredients] = React.useState([])
+
+	const ingredientList = ingredients.map(ingredient => {
+		return (<li key={ ingredient }>{ ingredient }</li>);
 	});
 
-	function handleClick() {
-		alert('you clicked');
+	function addIngredient(e) {
+		e.preventDefault()
+		let formData = new FormData(e.currentTarget)
+		const recipe = formData.get('recipe')
+		setIngredients(prev => (
+				[...prev, recipe]
+			)
+		)
 	}
 
   return (
     <main>
-    	<section className={ styles.input }>
-    		<input type="text" placeholder="e.g. oregano" />
-    		<button type="button" onClick={ handleClick }>+ Add ingredient</button>
-    	</section>
+  	<section className={ styles.input }>
+  		<form onSubmit={ addIngredient }>
+  			<input
+	  			type="text"
+	  			placeholder="e.g. oregano"
+	  			name="recipe"
+	  		/>
+	  		<button>+ Add ingredient</button>
+  		</form>
+  	</section>
 		<section className={ styles.ingredients }>
 			<p className={ styles.title }>Ingredients on hand:</p>
-
 			<ul>
 				{ ingredientList }
 			</ul>
-			{/*<ul className={ styles.list }>
-				<li>Chicken breasts</li>
-				<li>Most of the main spices</li>
-				<li>Olive oil</li>
-				<li>Heavy cream</li>
-				<li>Chicken broth</li>
-				<li>Parmesan cheese</li>
-				<li>Spinach</li>
-			</ul>*/}
 		</section>
 		<Generate />
 	</main>
