@@ -12,9 +12,7 @@ export const Main = () => {
 		return (<li key={ ingredient }>{ ingredient }</li>);
 	});
 
-	function addIngredient(e) {
-		e.preventDefault()
-		let formData = new FormData(e.currentTarget)
+	function addIngredient(formData) {
 		const recipe = formData.get('recipe')
 		setIngredients(prev => (
 				[...prev, recipe]
@@ -25,7 +23,7 @@ export const Main = () => {
   return (
     <main>
   	<section className={ styles.input }>
-  		<form onSubmit={ addIngredient }>
+  		<form action={ addIngredient }>
   			<input
 	  			type="text"
 	  			placeholder="e.g. oregano"
