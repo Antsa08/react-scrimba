@@ -9,11 +9,16 @@ export default function App() {
    */
 
   function signUp(formData) {
-    const email = formData.get("email")
-    console.log(email)
+    const data = Object.fromEntries(formData)
+    console.log(data);
+    const dietartrestrictions = formData.getAll('dietary');
+    console.log(dietartrestrictions);
+    const allData = {
+      ...data,
+      dietary: dietartrestrictions
+    }
+    console.log(allData);
 
-    const password = formData.get('password')
-    console.log(password)
   }
 
   return (
@@ -21,12 +26,43 @@ export default function App() {
       <h1>Signup form</h1>
       <form action={signUp}>
         <label htmlFor="email">Email:</label>
-        <input id="email" type="email" name="email" placeholder="joe@schmoe.com" />
+        <input id="email" type="email" name="email" placeholder="joe@schmoe.com" defaultValue="test@gmail.com" />
         <br />
 
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password" defaultValue="password">Password:</label>
         <input id="password" type="password" name="password" />
         <br />
+
+        <label htmlFor="description">Description:</label>
+        <textarea id="description" name="description" rows="6" defaultValue="some description text ..."></textarea>
+        <br />
+
+        <fieldset>
+          <legend>Emplyment status</legend>
+          <label htmlFor="unemployed">
+            <input type="radio" id="unemployed" name="employmentStatus" value="unemployed" />Unemployed
+          </label>
+          <label htmlFor="parttime">
+            <input type="radio" id="parttime" name="employmentStatus" value="part-time" />Part-time
+          </label>
+          <label htmlFor="fulltime">
+            <input type="radio" id="fulltime" name="employmentStatus" value="full-time" defaultChecked={ true } />Full-time
+          </label>
+        </fieldset>
+        <br />
+
+        <fieldset>
+          <legend>Dietary restriction</legend>
+          <label htmlFor="meat">
+            <input type="checkbox" id="meat" name="dietary" value="Meat" defaultChecked={ true } />Meat
+          </label>
+          <label htmlFor="vegan">
+            <input type="checkbox" id="vegan" name="dietary" value="vegan" defaultChecked={ true } />Vegan
+          </label>
+          <label htmlFor="gluton">
+            <input type="checkbox" id="gluton" name="dietary" value="gluton" defaultChecked={ true } />Gluton-free
+          </label>
+        </fieldset>
 
         <button>Submit</button>
 
@@ -34,5 +70,3 @@ export default function App() {
     </section>
   )
 }
-
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);

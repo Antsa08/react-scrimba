@@ -4,7 +4,7 @@
 
 body {
     font:  normal 1rem/1rem 'Fira Code', 'roboto';
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     padding: 10px;
     background-color: #2DD4BF;
@@ -22,6 +22,8 @@ form {
 }
 
 label {
+    display: flex;
+    align-items: center;
     margin-bottom: 4px;
 }
 
