@@ -1,12 +1,14 @@
 import React from 'react'
 
 import { Generate } from './Generate'
+import { Recipe } from './Recipe'
 
 import styles from './main.module.scss'
 
 export const Main = () => {
 
 	const [ingredients, setIngredients] = React.useState([])
+	const [recipeShown, setRecipeShown] = React.useState(false)
 
 	const ingredientList = ingredients.map(ingredient => {
 		return (<li key={ ingredient }>{ ingredient }</li>);
@@ -18,6 +20,11 @@ export const Main = () => {
 				[...prev, recipe]
 			)
 		)
+	}
+
+	function getRecipe(e) {
+		e.preventDefault()
+		setRecipeShown( prevShown => !prevShown )
 	}
 
   return (
@@ -32,13 +39,17 @@ export const Main = () => {
 	  		<button>+ Add ingredient</button>
   		</form>
   	</section>
-		<section className={ styles.ingredients }>
-			<p className={ styles.title }>Ingredients on hand:</p>
-			<ul>
-				{ ingredientList }
-			</ul>
-		</section>
-		<Generate />
+		{ ingredients.length > 0 &&
+			<section className={ styles.ingredients }>
+				<p className={ styles.title }>Ingredients on hand:</p>
+				<ul>
+					{ ingredientList }
+				</ul>
+			</section> }
+		{ ingredients.length > 3 &&
+			<Generate getRecipe={ getRecipe } />
+		}
+		{ recipeShown && <Recipe /> }
 	</main>
   )
 }
