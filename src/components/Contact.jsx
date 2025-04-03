@@ -1,7 +1,7 @@
 import React from "react"
 import avatar from "/user.png"
-import starFilled from "/star-filled.png"
-import starEmpty from "/star-empty.png"
+
+import { Star } from './Star'
 
 export default function App() {
     const [contact, setContact] = React.useState({
@@ -34,19 +34,11 @@ export default function App() {
                     alt="User profile picture of John Doe"
                 />
                 <div className="info">
-                    <button
-                        onClick={toggleFavorite}
-                        aria-pressed={false}
-                        className="favorite-button"
-                    >
-                        <img
-                            src={isFavorite ? starEmpty : starFilled}
-                            alt="empty star icon"
-                            className="favorite"
-                        />
-                    </button>
+
+                    <Star toggleFavorite={toggleFavorite} isFavorite={isFavorite} />
+
                     <h2 className="name">
-                        { firstName } { lastName}
+                        { firstName } { lastName }
                     </h2>
                     <p className="contact">{ phone }</p>
                     <p className="contact">{ email }</p>
