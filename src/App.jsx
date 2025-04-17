@@ -12,17 +12,25 @@ function App(props) {
 
   const [pads, setPads] = React.useState(padsData)
 
+  function toggle(id) {
+    setPads(prevPads => prevPads.map(item => {
+      return item.id === id ? { ...item, on: !item.on } : item
+    }))
+  }
+
     const padElement = pads.map( pad => {
       return (<Pads
         key={ pad.id }
+        id={ pad.id }
         color={ pad.color }
-        on={ pad.on }
+        toggle={ toggle }
+        isOn={ pad.on }
       />)
     }
   )
 
   return (
-    <div className="pad-container" style={ { backgroundColor:  dkMode } }>
+    <div className="pad-container" style={ { backgroundColor: dkMode } }>
       { padElement }
     </div>
   )

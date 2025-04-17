@@ -1,17 +1,13 @@
 import React from 'react'
 
-export const Pads = ({ id, color, on }) => {
+export const Pads = ({ key, id, color, toggle, isOn }) => {
 
-  const [isColor, setIsColor] = React.useState(on)
-
-  function toggle() {
-    setIsColor(prev => !prev)
-  }
+  console.log(key)
 
   return (
     <button
-    	onClick={ toggle }
-    	className={ isColor ? 'on' : undefined }
+    	onClick={ () => toggle(id) }
+    	className={ isOn ? 'on' : undefined }
 			style={{ backgroundColor: color }}>
 		</button>
   )
