@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Generate } from './Generate'
 import { Recipe } from './Recipe'
+import { Ingredient } from './Ingredient'
 
 import styles from './main.module.scss'
 
@@ -9,10 +10,6 @@ export const Main = () => {
 
 	const [ingredients, setIngredients] = React.useState([])
 	const [recipeShown, setRecipeShown] = React.useState(false)
-
-	const ingredientList = ingredients.map(ingredient => {
-		return (<li key={ ingredient }>{ ingredient }</li>);
-	});
 
 	function addIngredient(formData) {
 		const recipe = formData.get('recipe')
@@ -39,16 +36,8 @@ export const Main = () => {
 	  		<button>+ Add ingredient</button>
   		</form>
   	</section>
-		{ ingredients.length > 0 &&
-			<section className={ styles.ingredients }>
-				<p className={ styles.title }>Ingredients on hand:</p>
-				<ul>
-					{ ingredientList }
-				</ul>
-			</section> }
-		{ ingredients.length > 3 &&
-			<Generate getRecipe={ getRecipe } />
-		}
+		{ ingredients.length > 0 && <Ingredient ingredients={ ingredients } /> }
+		{ ingredients.length > 3 && <Generate getRecipe={ getRecipe } /> }
 		{ recipeShown && <Recipe /> }
 	</main>
   )
