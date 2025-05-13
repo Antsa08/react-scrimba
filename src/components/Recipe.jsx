@@ -2,7 +2,8 @@ import React from 'react'
 
 import styles from './recipe.module.scss'
 
-export function Recipe() {
+export function Recipe(props) {
+	console.log('props' , props)
 	return (
 		<section>
 		    <h2>Chef Claude Recommends:</h2>
@@ -34,6 +35,8 @@ export function Recipe() {
 		            <li>Add the Bolognese sauce to the cooked pasta and toss to combine.</li>
 		            <li>Serve hot, garnished with additional fresh basil or grated Parmesan cheese if desired.</li>
 		        </ol>
+		    	{ props.recipeFromAi.content }
+		    	{ props.recipeFromAi.reasoning }
 		    </article>
 		</section>
 	)
