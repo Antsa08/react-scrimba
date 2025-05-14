@@ -2,13 +2,19 @@ import React from 'react'
 
 import styles from './recipe.module.scss'
 
+import Markdown from 'react-markdown'
+
 export function Recipe(props) {
 	console.log('props' , props)
+
+	const markDownContent = props.recipeFromAi.content;
+	const markDownReasoning = props.recipeFromAi.reasoning ;
+
 	return (
 		<section>
 		    <h2>Chef Claude Recommends:</h2>
 		    <article className={ styles.suggestedRecipeContainer } aria-live="polite">
-		        <p>Based on the ingredients you have available, I would recommend making a simple a delicious <strong>Beef Bolognese Pasta</strong>. Here is the recipe:</p>
+		        {/*<p>Based on the ingredients you have available, I would recommend making a simple a delicious <strong>Beef Bolognese Pasta</strong>. Here is the recipe:</p>
 		        <h3>Beef Bolognese Pasta</h3>
 		        <strong>Ingredients:</strong>
 		        <ul>
@@ -34,9 +40,10 @@ export function Recipe(props) {
 		            <li>While the sauce is simmering, cook the pasta according to the package instructions. Drain the pasta and return it to the pot.</li>
 		            <li>Add the Bolognese sauce to the cooked pasta and toss to combine.</li>
 		            <li>Serve hot, garnished with additional fresh basil or grated Parmesan cheese if desired.</li>
-		        </ol>
-		    	{ props.recipeFromAi.content }
-		    	{ props.recipeFromAi.reasoning }
+		        </ol>*/}
+		    	<Markdown>{ markDownContent }</Markdown>
+		    	<strong>Instructions:</strong>
+		    	<Markdown>{ markDownReasoning }</Markdown>
 		    </article>
 		</section>
 	)
