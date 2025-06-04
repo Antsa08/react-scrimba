@@ -17,6 +17,10 @@ export const Main = () => {
 	// Initialize the state to an empty string
 	const [recipeShown, setRecipeShown] = React.useState("")
 
+	// Setting a new ref 'Use useRef for detecting a change in an element'
+	const recipeSection = React.useRef(null)
+	console.log('recipeSection', recipeSection)
+
 	// add Ingredient from the form using formData
 	function addIngredient(formData) {
 		const recipe = formData.get('recipe')
@@ -30,6 +34,15 @@ export const Main = () => {
 		}
 	}
 
+	React.useEffect(() => {
+		console.log('eeffect launch')
+		if (recipeSection.current != null && ingredients != '') {
+			recipeSection.current.scrollIntoView({
+				behavior: 'smooth'
+			})
+		}
+	}, [])
+
 	// Get the value generate by the IA api
 	async function generateRecipe() {
 		const getRecipeFromApi = await getRecipeFromMistral(ingredients)
@@ -41,7 +54,7 @@ export const Main = () => {
 
 	// useRef is to count the number of rendered page
 	const renderCount = React.useRef(0);
-	renderCount.current += 1;
+	// renderCount.current += 1;
 	console.log(renderCount);
 
   return (
@@ -58,7 +71,7 @@ export const Main = () => {
 	  	</section>
 			{ ingredients.length > 0 && <Ingredient ingredients={ ingredients } /> }
 			{ ingredients.length > 3 && <Generate generateRecipe={ generateRecipe } /> }
-			{ recipeShown && <Recipe recipeFromAi={ recipeShown } /> }
+			{ recipeShown && <Recipe recipeFromAi={ recipeShown } ref={ recipeSection} /> }
 		</main>
   )
 }

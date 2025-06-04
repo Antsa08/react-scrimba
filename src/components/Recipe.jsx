@@ -11,7 +11,7 @@ export function Recipe(props) {
 	const markDownReasoning = props.recipeFromAi.reasoning ;
 
 	return (
-		<section>
+		<section ref={ props.ref }>
 		    <h2>Chef Claude Recommends:</h2>
 		    <article className={ styles.suggestedRecipeContainer } aria-live="polite">
 		        {/*<p>Based on the ingredients you have available, I would recommend making a simple a delicious <strong>Beef Bolognese Pasta</strong>. Here is the recipe:</p>

@@ -19,7 +19,7 @@ export async function getRecipeFromMistral(ingredientsArr) {
 
 	try {
 		const completion = await openai.chat.completions.create({
-			model: "qwen/qwen3-0.6b-04-28:free",
+			model: "deepseek/deepseek-r1-0528-qwen3-8b:free",
 			messages: [
 				{ role: "system", content: SYSTEM_PROMPT },
 				{ role: "user", content: `I have ${ingredientsString}. Please give me a recipe you'd recommend I make!` },
