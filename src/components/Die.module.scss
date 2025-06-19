@@ -1,0 +1,67 @@
+.tenzies {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+
+  h1 {
+  	font-size: 25.6px;
+  }
+
+  p {
+    font-size: 13.1px;
+    margin-bottom: 23px;
+  }
+
+  .tenziesBlock {
+  	display: grid;
+  	grid-column: repeat(5, 1fr);
+  	gaps: 20px;
+
+  	span {
+  		width: 38px;
+	  	width: 38px;
+		  height: 38px;
+		  border-radius: 4px;
+		  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+		  cursor: pointer;
+
+		  &.active {
+				 	background-color: #59E391;
+		  		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+		  }
+  	}
+  }
+
+  .tenziesBlock li {
+	  display: inline-flex;
+	  justify-content: center;
+	  align-items: center;
+	  width: 38px;
+	  height: 38px;
+	  margin: 0 17px 18.5px 0;
+	  /*border: solid 1px goldenrod;*/
+	  border-radius: 4px;
+	  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+	  cursor: pointer;
+
+	  &.active {
+		  
+		}
+
+		&:nth-child(5),
+		&:nth-child(10) {
+		  margin-right: 0;
+		}
+	}
+
+}
+
+.btnRoll {
+  min-width: 92px;
+  min-height: 36px;
+  margin-top: 4.5px;
+  border-radius: 4px;
+  background-color: #5035FF;
+}
