@@ -16,8 +16,14 @@ function App() {
 
   const { width, height } = useWindowSize();
 
+  const refBtn = React.useRef(null);
+
   let gameWon = dices.every(item => item.isHeld) &&
     dices.every(item => item.value == dices[0].value)
+
+  React.useEffect(() => {
+    if (gameWon)  refBtn.current.focus()
+  }, [gameWon])
 
   function generateAllNewDice() {
     return new Array(10)
@@ -74,6 +80,7 @@ function App() {
             <button
               className="btnRoll"
               onClick={ gameWon ? newGame : roll }
+              ref={ refBtn }
             >{ gameWon ? 'New Game': 'Roll' }</button>
           </section>
       </main>
