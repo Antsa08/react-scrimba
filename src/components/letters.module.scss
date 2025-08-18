@@ -1,0 +1,17 @@
+.lettersContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 36px;
+	span {
+		display: inline-block;
+		width: 40px;
+		height: 40px;
+		align-content: center;
+		margin: 0 1px;
+		color: #323232;
+		border-bottom: 1px solid #F9F4DA;
+		font: 700 16px/16px 'Fira Code';
+	    background: #323232;
+	}
+}

@@ -1,0 +1,22 @@
+.keyboardContainer {
+	display: inline-flex;
+	flex-wrap: wrap;
+	max-width: 480px;
+	align-items: center;
+	justify-content: center;
+	padding-top: 26px;
+
+	button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		margin: 4px 4px;
+    border-radius: 4px;
+		font: 600 15px/15px 'Fira code';
+		background-color: #fcba29;
+		color: #1e1e1e;
+	}
+
+}

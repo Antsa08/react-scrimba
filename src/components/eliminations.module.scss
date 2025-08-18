@@ -1,0 +1,14 @@
+.eliminationsContainer {
+	display: inline-flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	max-width: 300px;
+	margin: 0 auto 36px;
+	align-content: center;
+	span {
+		margin: 0 .75px 1.5px;
+		padding: 4.5px;
+		border-radius: 3px;
+		font: 700 12px/12px 'Fira Code';
+	}
+}
