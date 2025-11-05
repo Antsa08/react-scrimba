@@ -9,9 +9,13 @@
 		height: 40px;
 		align-content: center;
 		margin: 0 1px;
-		color: #323232;
-		border-bottom: 1px solid #F9F4DA;
+		color: #f9f4da;
+		border-bottom: 1px solid #f9f4da;
 		font: 700 16px/16px 'Fira Code';
 	    background: #323232;
+
+	    &.over {
+	    	color: tomato!important;
+	    }
 	}
 }

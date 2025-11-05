@@ -24,7 +24,7 @@ p {
 
   .head-group {
     max-width: 370px;
-    margin: 0 auto;
+    margin: 0 auto 37px;
   }
 }
 
@@ -62,4 +62,34 @@ p {
 
 .read-the-docs {
   color: #888;
+}
+
+.btn-new-game {
+  margin-block: 20px;
+}
+
+.correct {
+  background-color: #10a95b!important;
+}
+
+.wrong {
+  background-color: #ec5d49!important;
+}
+
+.dead::before {
+  content: '💀';
+  display: flex;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: rgba(0, 0, 0, .7);
+}
+
+span.over {
+  color: #EC5D49!important;
 }

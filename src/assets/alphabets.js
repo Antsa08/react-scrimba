@@ -1,0 +1,30 @@
+const alphabets = [
+	{value: 'A', check: false},
+	{value: 'B', check: false},
+	{value: 'C', check: false},
+	{value: 'D', check: false},
+	{value: 'E', check: false},
+	{value: 'F', check: false},
+	{value: 'G', check: false},
+	{value: 'H', check: false},
+	{value: 'I', check: false},
+	{value: 'J', check: false},
+	{value: 'K', check: false},
+	{value: 'L', check: false},
+	{value: 'M', check: false},
+	{value: 'N', check: false},
+	{value: 'O', check: false},
+	{value: 'P', check: false},
+	{value: 'Q', check: false},
+	{value: 'R', check: false},
+	{value: 'S', check: false},
+	{value: 'T', check: false},
+	{value: 'U', check: false},
+	{value: 'V', check: false},
+	{value: 'W', check: false},
+	{value: 'X', check: false},
+	{value: 'Y', check: false},
+	{value: 'Z', check: false}
+];
+
+export default alphabets;

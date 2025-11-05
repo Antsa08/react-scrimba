@@ -2,9 +2,22 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-direction: column;
 	min-height: 60px;
 	margin-bottom: 35px;
 	border: 1px dashed #323232;
 	border-radius: 4px;
-	background: #7a5ea7;
+	&.win {
+		background: #10a95b;
+	}
+	&.lose {
+		background: #ba2a2a;
+	}
+	&.none {
+		background: #7a5ea7;
+	}
+	&.farewell {
+		background: #7a5ea7;
+	}
+
 }
